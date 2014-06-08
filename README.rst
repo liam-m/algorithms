@@ -1,7 +1,7 @@
-Algorithms: a module of useful algorithms for Python
-====================================================
+Algorithms
+==========
 
-This is an attempt to build a cohesive module of algorithms in Python. 
+This is an attempt to build a cohesive module of algorithms in Python.
 
 The purpose of this repo is to be a learning tool for myself and others.
 
@@ -11,77 +11,92 @@ Algorithms implemented so far:
 ------------------------------
 
 **Sorting:**
-    - Bubble Sort
-    - Comb Sort
-    - Heap Sort
-    - Insertion Sort
-    - Quick Sort
-    - Selection Sort
-    - Shell Sort
-    - Bogo Sort
-    - Cocktail Sort
+
+- Bogo Sort
+- Bubble Sort
+- Cocktail Sort
+- Comb Sort
+- Heap Sort
+- Insertion Sort
+- Merge Sort
+- Quick Sort
+- In Place Quick Sort
+- Selection Sort
+- Shell Sort
 
 **Searching:**
-    - Binary Search
-    - Knuth-Morris-Pratt
-    - Rabin-Karp
+
+- Binary Search
+- Boyer-Moore-Horspool
+- Knuth-Morris-Pratt
+- Rabin-Karp
+- Depth First Search (Recursive)
 
 **Shuffling:**
-	- Knuth/Fisher-Yates Shuffle
+
+- Knuth/Fisher-Yates Shuffle
+
+**Math:**
+
+- Extended GCD
+
+**Random:**
+
+- Mersenne Twister
+
 
 Installation:
 -------------
 
-To clone the repository in to your working directory: 
+If you want to use the algorithms directly, simply
 
-.. code::
-    
-    $ git clone https://github.com/nryoung/algorithms.git
-    
-Requirements are listed in :code:`requirements.txt`.
+::
 
-If you are using pip and virtualenv you can simply do: 
+    $ pip install algorithms
 
-.. code::
-    
-    $ pip install -r requirements.txt
-    
+If you want to examine the algorithms source, then you should clone this repo.
 
 Usage:
 ------
 
-Once cloned you can simply do the following in your program:
+Once installed you can simply do the following in your program:
 
-.. code:: python
+::
 
     from algorithms.sorting import bubble_sort
 
     my_list = bubble_sort.sort(my_list)
 
+
 All prequisites for the algorithms are listed in the source code for each algorithm.
 
+
 Tests:
-------------------------
+------
 
 Nose is used as the main test runner and all Unit Tests can be run by: 
 
-.. code::
-    
+::
+
     $ python algorithms/run_tests.py
+
+
+Contributing:
+-------------
+
+If there is an algorithm or data structure that you do not see, but would like to add please feel free to do a pull request. I only ask two things:
+
+1. For each algorithm and data structure you implement please have corresponding unit tests to prove correctness.
+2. Please make sure that your module follows similar style guidelines that are laid out in the other modules.
+
+I want to personally thank everybody that has contributed so far and your names will be added to `AUTHORS.rst`.
+
 
 TODO:
 -----
 
-Below is an ever changing list of things that I would like to accomplish or implement. If you feel something needs to be added simply do a pull request.
+See `TODO.rst`.
 
-**Algorithms to implement:**
-    - Boyer-Moore-Horspool
-    - Mersenne Twister
-    - UUID Generator
-    - Bloom Filters
-
-**Misc.:**
-    - Performance Tests
 
 License:
 --------

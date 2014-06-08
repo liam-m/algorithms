@@ -1,22 +1,23 @@
-""" 
-	knuth.py
-	Implementation of the Fisher-Yates/Knuth shuffle
-	
-	Pre: Takes any list, unshuffled
-	Post: Returns list shuffled randomly
+"""
+    knuth.py
+    Implementation of the Fisher-Yates/Knuth shuffle
 
-	Time Complexity: n
-	Space Complexity: n
+    Fisher-Yates/Knuth Overview:
+    ----------------------------
+    Randomly picks integers to swap elements in an ubiased manner.
 
-	Pseudocode: http://en.wikipedia.org/wiki/Fisher%E1%80%93Yates_shuffle
+    Time Complexity: O(n)
+    Space Complexity: O(n)n
+
+    Pseudocode: http://en.wikipedia.org/wiki/Fisher%E1%80%93Yates_shuffle
 
 """
-import random
+from random import seed, randint
 
 
-def shuffle(li):
-	random.seed()
-	for i in xrange(len(li) - 1, 0, -1):
-		j = random.randint(0, i)
-		li[i], li[j] = li[j], li[i]
-	return li
+def shuffle(seq):
+    seed()
+    for i in reversed(range(len(seq))):
+        j = randint(0, i)
+        seq[i], seq[j] = seq[j], seq[i]
+    return seq

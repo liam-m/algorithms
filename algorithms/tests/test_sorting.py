@@ -1,13 +1,15 @@
 import random
 import unittest
-from ..sorting import bubble_sort, selection_sort, insertion_sort, merge_sort, quick_sort, heap_sort, shell_sort, comb_sort, cocktail_sort
+from ..sorting import bubble_sort, selection_sort, insertion_sort, \
+    merge_sort, quick_sort, heap_sort, shell_sort, comb_sort, cocktail_sort, \
+    quick_sort_in_place
 
 
 class SortingAlgorithmTestCase(unittest.TestCase):
     """
     Shared code for a sorting unit test.
     """
-    
+
     def setUp(self):
         self.input = range(10)
         random.shuffle(self.input)
@@ -72,6 +74,22 @@ class TestQuickSort(SortingAlgorithmTestCase):
         self.assertEqual(self.correct, self.output)
 
 
+class TestQuickSortInPlace(SortingAlgorithmTestCase):
+    """
+    Tests Quick sort in place version on a small range from 0-9
+    also tests partition function included in quick sort
+    """
+    def test_quicksort_in_place(self):
+        self.output = quick_sort_in_place.sort(self.input, 0,
+                len(self.input)-1)
+        self.assertEqual(self.correct, self.output)
+
+    def test_partition(self):
+        self.seq = range(10)
+        self.assertIs(quick_sort_in_place.partition(self.seq, 0,
+            len(self.seq)-1, 5), 5)
+
+
 class TestHeapSort(SortingAlgorithmTestCase):
     """
     Test Heap sort on a small range from 0-9
@@ -101,6 +119,7 @@ class TestCombSort(SortingAlgorithmTestCase):
         self.output = comb_sort.sort(self.input)
         self.assertEqual(self.correct, self.output)
 
+
 class TestCocktailSort(SortingAlgorithmTestCase):
     """
     Tests Cocktail sort on a small range from 0-9
@@ -109,4 +128,3 @@ class TestCocktailSort(SortingAlgorithmTestCase):
     def test_cocktailsort(self):
         self.output = cocktail_sort.sort(self.input)
         self.assertEqual(self.correct, self.output)
-

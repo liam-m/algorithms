@@ -1,13 +1,14 @@
 import unittest
 from ..shuffling import knuth
 
+
 class ShufflingAlgorithmTestCase(unittest.TestCase):
     """
     Shared code for shuffling unit tests.
     """
 
     def setUp(self):
-       self.sorted = range(10)
+        self.sorted = range(10)
 
 
 class TestKnuthShuffle(ShufflingAlgorithmTestCase):
@@ -22,4 +23,4 @@ class TestKnuthShuffle(ShufflingAlgorithmTestCase):
             if i == self.shuffle[i]:
                 self.not_shuffled = self.not_shuffled + 1
 
-        self.assertGreater(4, self.not_shuffled)
+        self.assertGreater(5, self.not_shuffled)
