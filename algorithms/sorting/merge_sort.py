@@ -19,19 +19,12 @@
 
 
 def merge(left, right):
-    result = []
-    n, m = 0, 0
-    while n < len(left) and m < len(right):
-        if left[n] <= right[m]:
-            result.append(left[n])
-            n += 1
-        else:
-            result.append(right[m])
-            m += 1
-
-    result += left[n:]
-    result += right[m:]
-    return result
+    if not (left and right):
+        return left+right
+    elif left[0] < right[0]:
+        return [left[0]] + merge(left[1:], right)
+    else:
+        return [right[0]] + merge(left, right[1:])
 
 
 def sort(seq):
