@@ -17,12 +17,14 @@
     Pseudocode: https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes    
 """
 
+from math import sqrt
+
 def eratosthenes(end,start=2):
     if start < 2:
         start = 2
     primes = range(start,end)
     marker = 2
-    while marker < end:
+    while marker < sqrt(end):
         for i in xrange(marker, end+1):
             if marker*i in primes:
                 primes.remove(marker*i)
